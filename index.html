@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Payer Pulse — June 4, 2026</title>
+<title>Payer Pulse — June 8, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -252,21 +252,27 @@
     .card-detail{max-height:none!important;border-top:1px solid var(--line-soft);}
     .card .expander{display:none;}
   }
+
+  /* two-pillar additions */
+  .trk{display:inline-flex;align-items:center;gap:6px;border-radius:5px;padding:4px 9px;font-size:10.5px;font-weight:700;letter-spacing:.3px;line-height:1;white-space:nowrap;color:#fff;background:var(--blue);}
+  .trk .d{width:6px;height:6px;border-radius:50%;background:#fff;}
+  .mkt-src{font-size:12px;color:var(--ink-50);margin:11px 0 0;font-weight:600;}
+  .chip[data-f="regulatory"]{color:var(--gold-deep);}
+  .chip[data-f="market"]{color:var(--blue);}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- ===== Masthead ===== -->
-  <header class="masthead" data-screen-label="Masthead">
+  <header class="masthead">
     <div class="mast-top">
-      <p class="eyebrow"><span class="tick"></span>Competitive Intelligence · Issue #1</p>
+      <p class="eyebrow"><span class="tick"></span>Competitive Intelligence</p>
       <div class="seal"><span class="label">Simplify Healthcare</span><span class="mono">PP</span></div>
     </div>
     <h1 class="title">Payer Pulse</h1>
     <div class="meta">
-      <div class="cell"><span class="k">Edition</span><span class="v">Regulatory &amp; Government Brief</span></div>
-      <div class="cell"><span class="k">Published</span><span class="v">June 4, 2026</span></div>
+      <div class="cell"><span class="k">Edition</span><span class="v">Regulatory &amp; Market Brief</span></div>
+      <div class="cell"><span class="k">Published</span><span class="v">June 8, 2026</span></div>
       <div class="cell"><span class="k">Next Issue</span><span class="v">June 15, 2026</span></div>
     </div>
     <svg class="ekg" viewBox="0 0 780 54" preserveAspectRatio="none" aria-hidden="true">
@@ -275,266 +281,381 @@
   </header>
   <div class="goldrule"></div>
 
-  <!-- ===== Sticky filter bar ===== -->
   <div class="toolbar" role="region" aria-label="Filter the brief">
-    <span class="lbl">Line of business</span>
+    <span class="lbl">View</span>
     <div class="chips" id="chips">
       <button class="chip active" data-f="all"><span class="dot"></span><span>All</span></button>
-      <button class="chip" data-f="aca"><span class="dot"></span><span>ACA / Exchange</span></button>
-      <button class="chip" data-f="medicaid"><span class="dot"></span><span>Medicaid</span></button>
-      <button class="chip" data-f="medicare"><span class="dot"></span><span>Medicare / MA</span></button>
-      <button class="chip" data-f="commercial"><span class="dot"></span><span>Commercial</span></button>
+      <button class="chip" data-f="regulatory"><span class="dot"></span><span>Regulatory</span></button>
+      <button class="chip" data-f="market"><span class="dot"></span><span>Payer &amp; Market</span></button>
     </div>
-    <div class="toggle" id="hiToggle" role="switch" aria-checked="false" tabindex="0">
-      <span class="sw"></span><span>High-impact only</span>
-    </div>
+    <div class="toggle" id="hiToggle" role="switch" aria-checked="false" tabindex="0"><span class="sw"></span><span>High impact only</span></div>
   </div>
 
   <div class="body">
 
-    <!-- ===== 60-second brief ===== -->
-    <div class="section-head">
-      <div>
-        <p class="kicker">Start Here</p>
-        <h2>The 60-Second Brief</h2>
-      </div>
-      <span class="count" data-count="brief"></span>
+    <div class="section-head" data-pillar="brief">
+      <div><p class="kicker">At a glance</p><h2>The 60-Second Brief</h2></div>
+      <span class="count">8 items</span>
     </div>
-    <p class="brief-intro">Five moves shaping payer strategy this fortnight. Filter by your book of business above; tap any item below for the full read.</p>
-
+    <p class="brief-intro">The most consequential regulatory and payer-market developments this cycle. Items affecting plans in Simplify’s book of business are flagged inline.</p>
     <div class="brief-grid" id="briefGrid">
-
-      <article class="brief-card" data-lob="aca" data-impact="high">
+      <article class="brief-card" data-pillar="brief" data-impact="high">
         <div class="brief-num">1</div>
         <div>
-          <p class="lede"><strong>2027 ACA marketplace rules are final.</strong> Exchange issuers have locked-in user fees, risk adjustment, and HHS-RADV parameters to operationalize for plan year 2027.</p>
-          <div class="row">
-            <span class="tag aca"><span class="d"></span>ACA / Exchange</span>
-            <span class="impact high"><span class="d"></span>High impact</span>
-          </div>
+          <p class="lede"><strong>Risk-adjustment legal heat keeps climbing on tracked clients.</strong> An Elevance exec (Jumbo, 36.3M) was ordered to testify in an MA fraud case; Elevance again dodged — but hasn’t escaped — MA sanctions.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
         </div>
       </article>
-
-      <article class="brief-card" data-lob="medicaid" data-impact="high">
+      <article class="brief-card" data-pillar="brief" data-impact="high">
         <div class="brief-num">2</div>
         <div>
-          <p class="lede"><strong>Medicaid work requirements are coming fast.</strong> States must stand up community-engagement eligibility checks by Jan 1, 2027 — reshaping enrollment and churn for managed-care plans.</p>
-          <div class="row">
-            <span class="tag medicaid"><span class="d"></span>Medicaid</span>
-            <span class="impact high"><span class="d"></span>High impact</span>
-          </div>
+          <p class="lede"><strong>Aetna’s $117.7M MA False Claims settlement</strong> (CVS/Aetna, 24.9M) sharpens encounter-data scrutiny and audit-tooling demand.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
         </div>
       </article>
-
-      <article class="brief-card" data-lob="medicaid" data-impact="high">
+      <article class="brief-card" data-pillar="brief" data-impact="high">
         <div class="brief-num">3</div>
         <div>
-          <p class="lede"><strong>State directed-payment limits may shift.</strong> A proposed rule would change how managed-care directed payments are capped — with direct revenue implications for Medicaid MCOs.</p>
-          <div class="row">
-            <span class="tag medicaid"><span class="d"></span>Medicaid</span>
-            <span class="impact high"><span class="d"></span>High impact</span>
-          </div>
+          <p class="lede"><strong>A direct competitor entered our space.</strong> A Blue Shield of California spinoff (Large, 4.7M) launched an AI data platform for payers.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
         </div>
       </article>
-
-      <article class="brief-card" data-lob="aca medicaid medicare commercial" data-impact="med">
+      <article class="brief-card" data-pillar="brief" data-impact="med">
         <div class="brief-num">4</div>
         <div>
-          <p class="lede"><strong>ACA nondiscrimination scope narrowed.</strong> A court vacated parts of the 2024 Section 1557 rule, easing some gender-identity-related coverage obligations across plan lines.</p>
-          <div class="row">
-            <span class="tag aca"><span class="d"></span>ACA</span>
-            <span class="tag medicaid"><span class="d"></span>Medicaid</span>
-            <span class="tag medicare"><span class="d"></span>MA</span>
-            <span class="tag commercial"><span class="d"></span>Commercial</span>
-            <span class="impact med"><span class="d"></span>Medium</span>
-          </div>
+          <p class="lede"><strong>Network stability is wobbling across tracked clients.</strong> BCBS Michigan reached a tentative deal keeping 12 hospitals in-network; Premera extended its MultiCare deadline.</p>
+          <div class="row"><span class="impact med"><span class="d"></span>Med impact</span></div>
         </div>
       </article>
-
-      <article class="brief-card" data-lob="medicare medicaid" data-impact="med">
+      <article class="brief-card" data-pillar="brief" data-impact="med">
         <div class="brief-num">5</div>
         <div>
-          <p class="lede"><strong>New provider enrollment freezes.</strong> 6-month national moratoria on hospice and home-health enrollment affect MA and Medicaid network adequacy and fraud-risk posture.</p>
-          <div class="row">
-            <span class="tag medicare"><span class="d"></span>Medicare / MA</span>
-            <span class="tag medicaid"><span class="d"></span>Medicaid</span>
-            <span class="impact med"><span class="d"></span>Medium</span>
-          </div>
+          <p class="lede"><strong>Benefit-design shifts are accelerating.</strong> Cigna (Jumbo, 16.4M) dropped GLP-1 obesity coverage for its own employees as drug-cost pressure mounts.</p>
+          <div class="row"><span class="impact med"><span class="d"></span>Med impact</span></div>
         </div>
       </article>
-
+      <article class="brief-card" data-pillar="brief" data-impact="high">
+        <div class="brief-num">6</div>
+        <div>
+          <p class="lede"><strong>The finalized 2027 ACA Payment Notice</strong> resets risk adjustment, HHS-RADV, and Exchange user fees — forcing config updates across QHP products.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
+        </div>
+      </article>
+      <article class="brief-card" data-pillar="brief" data-impact="high">
+        <div class="brief-num">7</div>
+        <div>
+          <p class="lede"><strong>CMS enforcement is broad.</strong> Seven MA contract suspensions/terminations plus a Massachusetts Medicaid fraud suit against UnitedHealthcare signal sustained compliance pressure.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
+        </div>
+      </article>
+      <article class="brief-card" data-pillar="brief" data-impact="high">
+        <div class="brief-num">8</div>
+        <div>
+          <p class="lede"><strong>Medicaid work requirements are now law via IFC,</strong> with states mandated to implement by January 1, 2027 — a major eligibility/verification integration opening.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
+        </div>
+      </article>
     </div>
 
-    <!-- ===== Regulatory & Government Watch ===== -->
-    <div class="section-head">
-      <div>
-        <p class="kicker">Deep Dive</p>
-        <h2>Regulatory &amp; Government Watch</h2>
-      </div>
-      <span class="count" data-count="watch"></span>
+    <div class="section-head" data-pillar="regulatory">
+      <div><p class="kicker">Deep Dive</p><h2>Regulatory &amp; Government Watch</h2></div>
+      <span class="count" data-count="reg"></span>
     </div>
-
-    <div class="watch" id="watchList">
-
-      <article class="card" data-lob="aca" data-impact="high">
+    <div class="watch" id="regList">
+      <article class="card" data-pillar="regulatory" data-impact="high" data-tracked="0">
         <div class="card-head">
-          <div class="toprow">
-            <span class="rule-chip">Final Rule</span>
-            <span class="tag aca"><span class="d"></span>ACA / Exchange</span>
-            <span class="impact high"><span class="d"></span>High</span>
-          </div>
+          <div class="toprow"><span class="rule-chip">Final Rule</span><span class="tag aca"><span class="d"></span>ACA</span><span class="impact high"><span class="d"></span>High</span></div>
           <h3>HHS Notice of Benefit and Payment Parameters for 2027</h3>
-          <p class="summary">The annual rulebook for the ACA marketplaces is final — locking in 2027 payment parameters, HHS-RADV updates, and QHP user-fee rates.</p>
+          <p class="summary">Finalizes 2027 payment parameters, HHS-RADV updates, and QHP user-fee rates for the ACA marketplaces.</p>
           <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><span class="chev">⌄</span></div>
         </div>
         <div class="card-detail"><div class="detail-inner">
-          <p>This is the annual rulebook for the ACA marketplaces, finalizing 2027 payment parameters, updates to the HHS-operated risk adjustment and risk adjustment data validation (HHS-RADV) programs, and user-fee rates for QHP issuers on Federally-facilitated and State-based Exchanges.</p>
-          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Align 2027 pricing, risk-adjustment data practices, and fee assumptions now — these parameters are locked for the plan year.</span></div>
+          <p>This final rule resets the HHS-operated risk adjustment and risk-adjustment data validation (HHS-RADV) programs and sets 2027 user-fee rates for QHP issuers on Federally-facilitated and State-based Exchanges.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Update product configuration ahead of plan-year work — these parameters are locked for 2027. Effective Jul 20, 2026.</span></div>
           <a class="src" href="https://www.federalregister.gov/documents/2026/05/20/2026-10050/patient-protection-and-affordable-care-act-hhs-notice-of-benefit-and-payment-parameters-for-2027-and" target="_blank" rel="noopener">Federal Register ↗</a>
         </div></div>
       </article>
-
-      <article class="card" data-lob="medicaid" data-impact="high">
+      <article class="card" data-pillar="regulatory" data-impact="high" data-tracked="0">
         <div class="card-head">
-          <div class="toprow">
-            <span class="rule-chip">Interim Final · w/ comment</span>
-            <span class="tag medicaid"><span class="d"></span>Medicaid</span>
-            <span class="impact high"><span class="d"></span>High</span>
-          </div>
-          <h3>Medicaid Community Engagement Requirement</h3>
-          <p class="summary">An IFC implements the new statutory Medicaid work requirement — states must implement no later than January 1, 2027.</p>
-          <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><span class="chev">⌄</span></div>
-        </div>
-        <div class="card-detail"><div class="detail-inner">
-          <p>This interim final rule implements the new statutory Medicaid community-engagement (work) requirement, setting expectations for which applicants and beneficiaries must demonstrate engagement as a condition of eligibility. States must implement no later than January 1, 2027.</p>
-          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Prepare for significant enrollment volatility, new eligibility-verification workflows, and heavy member-communication demands for managed-care plans.</span></div>
-          <a class="src" href="https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals" target="_blank" rel="noopener">Federal Register ↗</a>
-        </div></div>
-      </article>
-
-      <article class="card" data-lob="medicaid" data-impact="high">
-        <div class="card-head">
-          <div class="toprow">
-            <span class="rule-chip">Proposed Rule</span>
-            <span class="tag medicaid"><span class="d"></span>Medicaid</span>
-            <span class="impact high"><span class="d"></span>High</span>
-          </div>
+          <div class="toprow"><span class="rule-chip">Proposed Rule</span><span class="tag medicaid"><span class="d"></span>Medicaid</span><span class="impact high"><span class="d"></span>High</span></div>
           <h3>Medicaid Managed Care State Directed Payments</h3>
-          <p class="summary">CMS proposes alternatives to the cap on the total payment rate governing state directed payments in managed care.</p>
+          <p class="summary">CMS proposes alternatives to the cap on total payment rates for state directed payments in managed care.</p>
           <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><span class="chev">⌄</span></div>
         </div>
         <div class="card-detail"><div class="detail-inner">
-          <p>CMS proposes alternatives to the cap on the total payment rate and other requirements governing state directed payments in managed care, citing its authority over prepaid inpatient and ambulatory health plans.</p>
-          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Directed payments are a major channel for supplemental dollars flowing to providers through MCOs — model contracting and provider-economics scenarios. Comment closes Jul 21–22, 2026.</span></div>
+          <p>CMS proposes alternatives to modify the limit on the total payment rate and other requirements for state directed payments in Medicaid managed care, citing its authority over prepaid inpatient and ambulatory health plans.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Reshapes Medicaid managed-care revenue models and configuration. Comment closes Jul 21, 2026.</span></div>
           <a class="src" href="https://www.federalregister.gov/documents/2026/05/22/2026-10292/medicaid-program-medicaid-managed-care-state-directed-payments-and-medicaid-fee-for-service-targeted" target="_blank" rel="noopener">Federal Register ↗</a>
         </div></div>
       </article>
-
-      <article class="card" data-lob="aca medicaid medicare commercial" data-impact="med">
+      <article class="card" data-pillar="regulatory" data-impact="high" data-tracked="0">
         <div class="card-head">
-          <div class="toprow">
-            <span class="rule-chip">Notice</span>
-            <span class="tag aca"><span class="d"></span>ACA</span>
-            <span class="tag medicaid"><span class="d"></span>Medicaid</span>
-            <span class="tag medicare"><span class="d"></span>MA</span>
-            <span class="tag commercial"><span class="d"></span>Commercial</span>
-            <span class="impact med"><span class="d"></span>Med</span>
-          </div>
-          <h3>Vacatur of Parts of the 2024 Section 1557 Rule</h3>
-          <p class="summary">A federal court vacated certain provisions of the May 2024 Nondiscrimination rule, easing some expanded obligations.</p>
+          <div class="toprow"><span class="rule-chip">Interim Final · w/ comment</span><span class="tag medicaid"><span class="d"></span>Medicaid</span><span class="impact high"><span class="d"></span>High</span></div>
+          <h3>Medicaid Community Engagement (Work) Requirement</h3>
+          <p class="summary">An IFC implements the new Medicaid work requirement; states must implement no later than January 1, 2027.</p>
           <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><span class="chev">⌄</span></div>
         </div>
         <div class="card-detail"><div class="detail-inner">
-          <p>A federal court vacated certain provisions of the May 2024 Nondiscrimination in Health Programs and Activities rule, specifically where they expanded obligations (the vacated portions tied to expanded coverage requirements).</p>
-          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Review benefit-design and nondiscrimination policies that were built to the 2024 standard across all affected plan lines.</span></div>
+          <p>This interim final rule implements the statutory community-engagement requirement, defining which applicants and beneficiaries must demonstrate qualifying activity as a condition of eligibility. States must comply no later than January 1, 2027.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Stand up eligibility-determination and verification workflows — a major systems-integration opportunity, with significant member-communication burden.</span></div>
+          <a class="src" href="https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals" target="_blank" rel="noopener">Federal Register ↗</a>
+        </div></div>
+      </article>
+      <article class="card" data-pillar="regulatory" data-impact="med" data-tracked="0">
+        <div class="card-head">
+          <div class="toprow"><span class="rule-chip">Notice</span><span class="tag aca"><span class="d"></span>ACA</span><span class="tag medicaid"><span class="d"></span>Medicaid</span><span class="tag medicare"><span class="d"></span>MA</span><span class="tag commercial"><span class="d"></span>Commercial</span><span class="impact med"><span class="d"></span>Med</span></div>
+          <h3>Vacatur of Parts of the 2024 Section 1557 Nondiscrimination Rule</h3>
+          <p class="summary">A federal court vacated portions of the 2024 nondiscrimination rule (Tennessee v. Kennedy, S.D. Miss.).</p>
+          <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><span class="chev">⌄</span></div>
+        </div>
+        <div class="card-detail"><div class="detail-inner">
+          <p>Following an October 2025 order in Tennessee v. Kennedy (S.D. Miss.), HHS notes that portions of the 2024 Nondiscrimination in Health Programs and Activities rule — specifically those expanding the definition of sex discrimination — have been vacated.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Review benefit-design and member-communication policies built to the 2024 standard across all affected plan lines.</span></div>
           <a class="src" href="https://www.federalregister.gov/documents/2026/06/02/2026-11015/notice-of-vacatur-regarding-certain-provisions-of-the-2024-nondiscrimination-in-health-programs-and" target="_blank" rel="noopener">Federal Register ↗</a>
         </div></div>
       </article>
-
-      <article class="card" data-lob="medicare medicaid" data-impact="med">
+      <article class="card" data-pillar="regulatory" data-impact="med" data-tracked="0">
         <div class="card-head">
-          <div class="toprow">
-            <span class="rule-chip">Notice</span>
-            <span class="tag medicare"><span class="d"></span>Medicare / MA</span>
-            <span class="tag medicaid"><span class="d"></span>Medicaid</span>
-            <span class="impact med"><span class="d"></span>Med</span>
-          </div>
-          <h3>Nationwide Enrollment Moratoria — Hospices &amp; Home Health</h3>
-          <p class="summary">CMS imposed 6-month nationwide moratoria on new Medicare enrollment of hospices and home-health agencies, effective May 13, 2026.</p>
+          <div class="toprow"><span class="rule-chip">Legislation</span><span class="tag medicaid"><span class="d"></span>Medicaid</span><span class="impact med"><span class="d"></span>Med</span></div>
+          <h3>HR 9139 — Medicaid Financing Intent</h3>
+          <p class="summary">A House bill clarifying congressional intent on Medicaid financing; referred to Energy & Commerce.</p>
           <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><span class="chev">⌄</span></div>
         </div>
         <div class="card-detail"><div class="detail-inner">
-          <p>CMS imposed 6-month nationwide moratoria on new Medicare enrollment of hospices and of home-health agencies, effective May 13, 2026.</p>
-          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Watch network adequacy in affected post-acute / home-based categories — the move signals continued program-integrity scrutiny in these provider segments.</span></div>
-          <a class="src" href="https://www.federalregister.gov/documents/2026/05/15/2026-09717/medicare-medicaid-and-childrens-health-insurance-programs-announcement-of-nationwide-temporary" target="_blank" rel="noopener">Federal Register ↗</a>
+          <p>HR 9139 would amend Title XIX of the Social Security Act to clarify congressional intent on Medicaid financing policies. Latest action: referred to the House Committee on Energy and Commerce.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Watch as a longer-term signal — could reshape managed-care funding rules and Medicaid revenue configuration.</span></div>
+          <a class="src" href="https://www.congress.gov/bill/119th-congress/house-bill/9139" target="_blank" rel="noopener">Congress.gov ↗</a>
         </div></div>
       </article>
-
-      <article class="card" data-lob="medicare" data-impact="low">
+      <article class="card" data-pillar="regulatory" data-impact="med" data-tracked="0">
         <div class="card-head">
-          <div class="toprow">
-            <span class="rule-chip">Final Rule</span>
-            <span class="tag medicare"><span class="d"></span>Medicare</span>
-            <span class="impact low"><span class="d"></span>Low</span>
-          </div>
-          <h3>IOTA Organ Transplant Model Updates</h3>
-          <p class="summary">CMS finalized updates to the Increasing Organ Transplant Access (IOTA) Model for Performance Year 2, plus a technical correction.</p>
+          <div class="toprow"><span class="rule-chip">Final Rule</span><span class="tag medicare"><span class="d"></span>MA</span><span class="impact med"><span class="d"></span>Med</span></div>
+          <h3>IOTA Organ Transplant Model Updates (PY2)</h3>
+          <p class="summary">CMS updates the Increasing Organ Transplant Access (IOTA) Model for Performance Year 2, plus a technical correction.</p>
           <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><span class="chev">⌄</span></div>
         </div>
         <div class="card-detail"><div class="detail-inner">
-          <p>CMS finalized updates to the Increasing Organ Transplant Access (IOTA) Model for Performance Year 2, plus a technical correction.</p>
-          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Limited direct payer impact, but relevant for plans tracking transplant-related value-based and access initiatives.</span></div>
+          <p>This final rule updates the Increasing Organ Transplant Access (IOTA) Model for Performance Year 2 and includes a technical correction to the regulatory text.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Affects Medicare APM configuration for participating payers and value-based arrangements. Effective Jul 1, 2026.</span></div>
           <a class="src" href="https://www.federalregister.gov/documents/2026/06/01/2026-10890/medicare-program-alternative-payment-model-updates-and-the-increasing-organ-transplant-access-iota" target="_blank" rel="noopener">Federal Register ↗</a>
         </div></div>
       </article>
-
-      <div class="empty" id="emptyState">No items match this filter. <b>Reset to “All”</b> or turn off high-impact only.</div>
-
+      <div class="empty" id="emptyReg">No regulatory items match this filter.</div>
     </div>
 
-    <!-- ===== On the Radar ===== -->
-    <div class="section-head">
-      <div>
-        <p class="kicker">Calendar</p>
-        <h2>On the Radar</h2>
-      </div>
+    <div class="section-head" data-pillar="market">
+      <div><p class="kicker">Competitive Landscape</p><h2>Payer &amp; Market Moves</h2></div>
+      <span class="count" data-count="mkt"></span>
+    </div>
+    <div class="watch" id="mktList">
+      <article class="card" data-pillar="market" data-impact="high" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact high"><span class="d"></span>High</span><span class="rule-chip">UnitedHealthcare</span></div>
+          <h3>Massachusetts sues UnitedHealthcare for alleged Medicaid fraud</h3>
+          <p class="summary">A state AG Medicaid-fraud suit against the largest payer signals enforcement risk — lifting payment-integrity and compliance software demand.</p>
+          <p class="mkt-src">Source: Healthcare Dive · +3 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="high" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact high"><span class="d"></span>High</span><span class="rule-chip">CVS / Aetna</span></div>
+          <h3>Aetna to pay $117.7M to settle Medicare Advantage False Claims allegations</h3>
+          <p class="summary">A $117.7M MA False Claims settlement underscores risk-adjustment scrutiny, driving demand for audit and encounter-data compliance tooling.</p>
+          <p class="mkt-src">Source: Medical Economics</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="high" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact high"><span class="d"></span>High</span><span class="trk"><span class="d"></span>Elevance Health · Jumbo · 36.3M</span></div>
+          <h3>Elevance executive ordered to testify in Medicare Advantage fraud case</h3>
+          <p class="summary">An exec compelled to testify in an MA fraud case heightens risk-adjustment legal exposure across large payers.</p>
+          <p class="mkt-src">Source: STAT · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">Point32Health (Harvard Pilgrim)</span></div>
+          <h3>Harvard Pilgrim class action alleges ‘ghost network’ fraud</h3>
+          <p class="summary">A ‘ghost network’ class action elevates provider-directory accuracy scrutiny and demand for network-data validation tools.</p>
+          <p class="mkt-src">Source: Class Action Lawsuits</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">Clover Health</span></div>
+          <h3>Clover beats CMS in Medicare Advantage star-ratings lawsuit</h3>
+          <p class="summary">A win over CMS on star-ratings methodology sets a precedent payers can leverage in disputes affecting MA bonus revenue.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Health Care Service Corp. · Jumbo · 18.6M</span></div>
+          <h3>Judge dismisses BCBS Texas’ surprise-billing suit against HaloMD</h3>
+          <p class="summary">Dismissal clarifies No Surprises Act dispute dynamics affecting claims and arbitration workflows.</p>
+          <p class="mkt-src">Source: Healthcare Dive · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Compliance</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Elevance Health · Jumbo · 36.3M</span></div>
+          <h3>Elevance again avoids Medicare Advantage sanctions, but threat remains</h3>
+          <p class="summary">A repeated near-miss on MA sanctions signals sustained compliance pressure — favoring monitoring software.</p>
+          <p class="mkt-src">Source: Healthcare Dive · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Compliance</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">Industry</span></div>
+          <h3>7 recent Medicare Advantage contract suspensions, terminations</h3>
+          <p class="summary">A roundup of MA contract actions highlights intensifying CMS enforcement shaping payer compliance priorities.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="high" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Networks</span><span class="impact high"><span class="d"></span>High</span><span class="trk"><span class="d"></span>BCBS Michigan · Large · 4.3M</span></div>
+          <h3>Michigan Medicine, BCBS reach tentative deal; 12 hospitals stay in-network</h3>
+          <p class="summary">A tentative deal resolves a major contract dispute and requires provider-network reconfiguration.</p>
+          <p class="mkt-src">Source: CBS News · +7 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Networks</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Premera Blue Cross · Large · 2.0M</span></div>
+          <h3>Premera, MultiCare extend contract negotiation deadline</h3>
+          <p class="summary">Extended MultiCare negotiations signal network instability requiring rapid directory and contract-management updates.</p>
+          <p class="mkt-src">Source: Tacoma News Tribune · +4 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Product</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Blue Shield of California · Large · 4.7M</span></div>
+          <h3>Blue Shield of California spinoff launches AI data platform for payers</h3>
+          <p class="summary">A tracked client’s spinoff launching a payer AI data platform is a direct competitive product entry in Simplify’s space.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Product</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>CVS / Aetna · Jumbo · 24.9M</span></div>
+          <h3>Aetna to launch ‘on-demand’ virtual mental health services in 2027</h3>
+          <p class="summary">A 2027 on-demand virtual behavioral-health launch signals benefit expansion needing product and network configuration.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Product</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Health Care Service Corp. · Jumbo · 18.6M</span></div>
+          <h3>BCBS Illinois expands maternal health coverage</h3>
+          <p class="summary">A maternal-health coverage expansion reflects benefit-design changes requiring product configuration updates.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Market shift</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">Presbyterian Health Plan</span></div>
+          <h3>Presbyterian Health Plan to pull back from Medicare Advantage</h3>
+          <p class="summary">An MA exit continues the plan-exit trend, reshaping competitive dynamics in Medicaid-heavy markets.</p>
+          <p class="mkt-src">Source: Modern Healthcare</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Market shift</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Cigna · Jumbo · 16.4M</span></div>
+          <h3>Cigna drops coverage of GLP-1 obesity drugs for its own employees</h3>
+          <p class="summary">Dropping GLP-1 obesity coverage for employees signals benefit-design shifts payers must configure amid drug-cost pressure.</p>
+          <p class="mkt-src">Source: Reuters · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Market shift</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Humana · Jumbo · 11.8M</span></div>
+          <h3>Humana invests $83M in new Florida pharmacy distribution center</h3>
+          <p class="summary">An $83M pharmacy distribution investment signals vertical pharmacy expansion influencing benefit and claims integration.</p>
+          <p class="mkt-src">Source: Fierce Healthcare · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Financials</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Highmark Health · Large · 5.1M</span></div>
+          <h3>Highmark posts $216M operating income in Q1 on health-plan turnaround</h3>
+          <p class="summary">$216M Q1 operating income signals financial capacity for technology investment.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Financials</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Cigna · Jumbo · 16.4M</span></div>
+          <h3>Cigna’s stop-loss margin recovery on track to wrap in 2027, incoming CEO says</h3>
+          <p class="summary">Stop-loss margin recovery timing and incoming-CEO commentary point to employer-segment product strategy shifts.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Leadership</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>GuideWell · Large · 4.9M</span></div>
+          <h3>Florida Blue taps interim market president amid leader’s retirement</h3>
+          <p class="summary">An interim market-president appointment signals a leadership transition affecting key-account continuity.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Leadership</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">UnitedHealthcare</span></div>
+          <h3>UnitedHealthcare names Kentucky Medicaid chief medical officer</h3>
+          <p class="summary">A new Kentucky Medicaid CMO signals Medicaid leadership focus relevant to plan-management software priorities.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Leadership</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Kaiser Permanente · Jumbo · 12.1M</span></div>
+          <h3>Kaiser Permanente names Emily Holliman mid-Atlantic president</h3>
+          <p class="summary">A new mid-Atlantic president marks a regional leadership change affecting account engagement.</p>
+          <p class="mkt-src">Source: The Business Journals · +2 more outlets</p>
+        </div>
+      </article>
+      <div class="empty" id="emptyMkt">No market items match this filter.</div>
+    </div>
+
+    <div class="section-head" data-pillar="brief">
+      <div><p class="kicker">Calendar</p><h2>On the Radar</h2></div>
       <span class="count">6 dates</span>
     </div>
-
     <div class="timeline">
-      <div class="tl-item">
-        <p class="tl-date">Jun 3, 2026 <span class="tl-kind com">Comment close</span></p>
-        <p class="tl-text">Medicaid / CHIP generic information collection (low-burden PRA clearance). <a href="https://www.federalregister.gov/documents/2026/05/20/2026-10097/medicaid-and-childrens-health-insurance-program-chip-generic-information-collection-activities" target="_blank" rel="noopener">source ↗</a></p>
-      </div>
       <div class="tl-item is-effective">
         <p class="tl-date">Jul 1, 2026 <span class="tl-kind eff">Effective</span></p>
-        <p class="tl-text">IOTA Model PY2 updates take effect. <a href="https://www.federalregister.gov/documents/2026/06/01/2026-10890/medicare-program-alternative-payment-model-updates-and-the-increasing-organ-transplant-access-iota" target="_blank" rel="noopener">source ↗</a></p>
+        <p class="tl-text">IOTA Model PY2 updates take effect (Medicare APMs). <a href="https://www.federalregister.gov/documents/2026/06/01/2026-10890/medicare-program-alternative-payment-model-updates-and-the-increasing-organ-transplant-access-iota" target="_blank" rel="noopener">source ↗</a></p>
       </div>
       <div class="tl-item is-effective">
         <p class="tl-date">Jul 20, 2026 <span class="tl-kind eff">Effective</span></p>
-        <p class="tl-text">2027 HHS Notice of Benefit and Payment Parameters. <a href="https://www.federalregister.gov/documents/2026/05/20/2026-10050/patient-protection-and-affordable-care-act-hhs-notice-of-benefit-and-payment-parameters-for-2027-and" target="_blank" rel="noopener">source ↗</a></p>
+        <p class="tl-text">2027 HHS Notice of Benefit and Payment Parameters — ready risk-adjustment and Exchange config. <a href="https://www.federalregister.gov/documents/2026/05/20/2026-10050/patient-protection-and-affordable-care-act-hhs-notice-of-benefit-and-payment-parameters-for-2027-and" target="_blank" rel="noopener">source ↗</a></p>
       </div>
       <div class="tl-item">
-        <p class="tl-date">Jul 21–22, 2026 <span class="tl-kind com">Comment close</span></p>
+        <p class="tl-date">Jul 21, 2026 <span class="tl-kind com">Comment close</span></p>
         <p class="tl-text">Medicaid managed-care state directed payments proposed rule. <a href="https://www.federalregister.gov/documents/2026/05/22/2026-10292/medicaid-program-medicaid-managed-care-state-directed-payments-and-medicaid-fee-for-service-targeted" target="_blank" rel="noopener">source ↗</a></p>
       </div>
       <div class="tl-item is-effective">
         <p class="tl-date">Jul 31, 2026 <span class="tl-kind eff">Effective</span></p>
-        <p class="tl-text">Medicaid community-engagement IFC (state implementation deadline Jan 1, 2027). <a href="https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals" target="_blank" rel="noopener">source ↗</a></p>
+        <p class="tl-text">Medicaid community-engagement IFC (comment period open). <a href="https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals" target="_blank" rel="noopener">source ↗</a></p>
       </div>
       <div class="tl-item">
-        <p class="tl-date">Nov 13, 2026 <span class="tl-kind watch">Watch</span></p>
-        <p class="tl-text">Expiry of 6-month hospice and HHA enrollment moratoria (effective May 13, 2026). <a href="https://www.federalregister.gov/documents/2026/05/15/2026-09718/medicare-medicaid-and-childrens-health-insurance-programs-announcement-of-nationwide-temporary" target="_blank" rel="noopener">source ↗</a></p>
+        <p class="tl-date">Jan 1, 2027 <span class="tl-kind watch">Watch</span></p>
+        <p class="tl-text">State deadline to implement Medicaid work requirements.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">2027 <span class="tl-kind watch">Watch</span></p>
+        <p class="tl-text">Aetna on-demand virtual behavioral-health launch; Cigna stop-loss margin recovery target.</p>
       </div>
     </div>
 
   </div>
 
-  <!-- ===== Footer ===== -->
   <footer class="footer">
-    <span class="fmast">Payer Pulse</span> is an automated scan of federal regulatory and payer-market activity, synthesized for leadership. Sources are linked inline.
+    <span class="fmast">Payer Pulse</span> is an automated twice-monthly scan of federal regulatory and payer-market activity, curated by Claude Opus and synthesized for leadership. Regulatory sources are linked; market sources are named (live links added on automated publish).
     <div class="frow">
-      <span>Compiled June 4, 2026 · Next issue June 15</span>
+      <span>Compiled June 8, 2026 · Next issue June 15</span>
       <span>Simplify Healthcare · Competitive Intelligence</span>
     </div>
   </footer>
@@ -543,64 +664,41 @@
 
 <script>
 (function(){
-  var chips = document.querySelectorAll('#chips .chip');
-  var hiToggle = document.getElementById('hiToggle');
-  var empty = document.getElementById('emptyState');
-  var activeF = 'all';
-  var hiOnly = false;
-
-  function matches(el){
-    var lob = (el.getAttribute('data-lob')||'').split(/\s+/);
-    var imp = el.getAttribute('data-impact');
-    if(activeF !== 'all' && lob.indexOf(activeF) === -1) return false;
-    if(hiOnly && imp !== 'high') return false;
+  var chips=document.querySelectorAll('#chips .chip');
+  var hi=document.getElementById('hiToggle');
+  var activeF='all', hiOnly=false;
+  function vis(el){
+    var p=el.getAttribute('data-pillar'), imp=el.getAttribute('data-impact');
+    if(hiOnly && imp!=='high') return false;
+    if(activeF!=='all' && p!=='brief' && p!==activeF) return false;
     return true;
   }
-
   function apply(){
-    ['#briefGrid', '#watchList'].forEach(function(sel){
-      document.querySelectorAll(sel + ' > article').forEach(function(el){
-        el.style.display = matches(el) ? '' : 'none';
-      });
+    ['#briefGrid','#regList','#mktList'].forEach(function(sel){
+      document.querySelectorAll(sel+' > article').forEach(function(el){ el.style.display=vis(el)?'':'none'; });
     });
-    // counts
-    var briefVis = [].filter.call(document.querySelectorAll('#briefGrid > article'), function(el){return el.style.display!=='none';}).length;
-    var watchVis = [].filter.call(document.querySelectorAll('#watchList > article'), function(el){return el.style.display!=='none';}).length;
-    var bc = document.querySelector('[data-count="brief"]');
-    var wc = document.querySelector('[data-count="watch"]');
-    if(bc) bc.textContent = briefVis + (briefVis===1?' item':' items');
-    if(wc) wc.textContent = watchVis + (watchVis===1?' item':' items');
-    empty.classList.toggle('show', watchVis === 0);
+    // section heads follow the pillar chip
+    document.querySelectorAll('.section-head').forEach(function(h){
+      var p=h.getAttribute('data-pillar');
+      var show = (activeF==='all') || p==='brief' || p===activeF;
+      h.style.display = show ? '' : 'none';
+    });
+    var rc=document.querySelector('[data-count="reg"]'), mc=document.querySelector('[data-count="mkt"]');
+    function cnt(sel){return [].filter.call(document.querySelectorAll(sel+' > article'),function(e){return e.style.display!=='none';}).length;}
+    var r=cnt('#regList'), m=cnt('#mktList');
+    if(rc) rc.textContent=r+(r===1?' item':' items');
+    if(mc) mc.textContent=m+(m===1?' item':' items');
+    var er=document.getElementById('emptyReg'), em=document.getElementById('emptyMkt');
+    if(er) er.classList.toggle('show', r===0);
+    if(em) em.classList.toggle('show', m===0);
   }
-
-  chips.forEach(function(c){
-    c.addEventListener('click', function(){
-      chips.forEach(function(x){x.classList.remove('active');});
-      c.classList.add('active');
-      activeF = c.getAttribute('data-f');
-      apply();
-    });
+  chips.forEach(function(c){c.addEventListener('click',function(){chips.forEach(function(x){x.classList.remove('active');});c.classList.add('active');activeF=c.getAttribute('data-f');apply();});});
+  function tog(){hiOnly=!hiOnly;hi.classList.toggle('on',hiOnly);hi.setAttribute('aria-checked',String(hiOnly));apply();}
+  hi.addEventListener('click',tog);
+  hi.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();tog();}});
+  document.querySelectorAll('#regList .card-head').forEach(function(h){
+    h.addEventListener('click',function(e){if(e.target.closest('a'))return;h.parentElement.classList.toggle('open');});
   });
-
-  function toggleHi(){
-    hiOnly = !hiOnly;
-    hiToggle.classList.toggle('on', hiOnly);
-    hiToggle.setAttribute('aria-checked', String(hiOnly));
-    apply();
-  }
-  hiToggle.addEventListener('click', toggleHi);
-  hiToggle.addEventListener('keydown', function(e){
-    if(e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); toggleHi(); }
-  });
-
-  // expand/collapse
-  document.querySelectorAll('#watchList .card-head').forEach(function(head){
-    head.addEventListener('click', function(e){
-      if(e.target.closest('a')) return;
-      head.parentElement.classList.toggle('open');
-    });
-  });
-
   apply();
 })();
 </script>
