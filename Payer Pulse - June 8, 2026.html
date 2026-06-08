@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://shamitbiswas-sh.github.io/payer-pulse/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Payer Pulse — June 8, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-900:#0B3A6B;
+    --blue:#105299;
+    --blue-link:#0C5395;
+    --sky:#BBECFF;
+    --sky-soft:#E6F4FE;
+    --gold:#D6B73E;
+    --gold-deep:#A8861A;
+    --gold-pale:#FFF4CF;
+    --ink:#221F20;
+    --ink-70:#4d4a48;
+    --ink-50:#6b6764;
+    --paper:#FFFFFF;
+    --bg:#E7E8EA;
+    --line:#E4E5E7;
+    --line-soft:#EEEFF1;
+    /* impact */
+    --hi:#B23A2E;      --hi-bg:#FBEAE7;
+    --med:#B07A12;     --med-bg:#FBF1D6;
+    --low:#5A6B7A;     --low-bg:#EEF2F5;
+    /* lob accents */
+    --aca:#1E6FB0;     --aca-bg:#E7F1FA;
+    --medicaid:#1F8A6D;--medicaid-bg:#E4F4EE;
+    --medicare:#6A4FB3;--medicare-bg:#EEE9F8;
+    --commercial:#5A6B7A;--commercial-bg:#EEF2F5;
+    --maxw:780px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;padding:28px 14px 64px;
+    background:var(--bg);
+    font-family:'Inter',-apple-system,'Segoe UI',Arial,sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{
+    max-width:var(--maxw);margin:0 auto;background:var(--paper);
+    box-shadow:0 1px 2px rgba(11,58,107,.06),0 18px 50px -22px rgba(11,58,107,.30);
+    border-radius:4px;overflow:hidden;
+  }
+
+  /* ===== Brand bar (logo) ===== */
+  .brandbar{padding:24px 36px 18px;text-align:center;}
+  .brandbar img{height:56px;width:auto;display:inline-block;}
+  .brandrule{height:1px;background:#E0E1E3;margin:0 36px;}
+
+  /* ===== Masthead ===== */
+  .masthead{
+    position:relative;overflow:hidden;
+    background:#1c2a5e url('assets/masthead-banner.png') right center / cover no-repeat;
+    padding:34px 40px 26px;
+  }
+  .mast-top{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:1;}
+  .mast-corner{position:absolute;top:34px;right:40px;color:var(--sky);font-size:12px;font-weight:600;letter-spacing:.4px;z-index:2;}
+  .eyebrow,.title,.meta{position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin:0;
+  }
+  .eyebrow .tick{width:18px;height:1.5px;background:var(--gold);display:inline-block;}
+  .seal{
+    display:flex;align-items:center;gap:9px;color:var(--sky);
+    font-size:11px;font-weight:600;letter-spacing:.4px;
+  }
+  .seal .mono{
+    width:34px;height:34px;border:1.5px solid rgba(214,183,62,.7);border-radius:50%;
+    display:grid;place-items:center;color:var(--gold);font-family:'Roboto Slab',serif;font-weight:800;font-size:13px;letter-spacing:0;
+  }
+  .title{
+    font-family:'Roboto Slab',Georgia,serif;font-weight:800;font-size:46px;line-height:1;
+    color:#fff;margin:18px 0 0;letter-spacing:-1px;position:relative;z-index:1;
+  }
+  .meta{
+    position:relative;z-index:1;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:0;
+    border-top:1px solid rgba(187,236,255,.22);padding-top:13px;
+  }
+  .meta .cell{padding-right:22px;margin-right:22px;border-right:1px solid rgba(187,236,255,.22);}
+  .meta .cell:last-child{border-right:0;}
+  .meta .k{display:block;color:rgba(187,236,255,.7);font-size:9.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:3px;}
+  .meta .v{display:block;color:#fff;font-size:13px;font-weight:600;}
+  .goldrule{height:4px;background:linear-gradient(90deg,var(--gold) 0%,#e8cf6a 50%,var(--gold) 100%);}
+
+  /* ===== Sticky filter bar ===== */
+  .toolbar{
+    position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:11px 40px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .toolbar .lbl{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-50);white-space:nowrap;}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;flex:1;}
+  .chip{
+    border:1px solid var(--line);background:#fff;border-radius:999px;
+    padding:6px 13px;font-family:inherit;font-size:12.5px;font-weight:600;color:var(--ink-70);
+    cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .15s ease;line-height:1;
+  }
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.9;}
+  .chip[data-f="all"]{color:var(--blue);}
+  .chip[data-f="aca"]{color:var(--aca);}
+  .chip[data-f="medicaid"]{color:var(--medicaid);}
+  .chip[data-f="medicare"]{color:var(--medicare);}
+  .chip[data-f="commercial"]{color:var(--commercial);}
+  .chip:hover{border-color:currentColor;}
+  .chip.active{background:currentColor;border-color:currentColor;}
+  .chip.active span,.chip.active .dot{color:#fff;}
+  .chip.active .dot{background:#fff;}
+  .toggle{
+    display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;
+    font-size:12.5px;font-weight:600;color:var(--ink-70);white-space:nowrap;
+  }
+  .toggle .sw{width:34px;height:19px;border-radius:999px;background:#d6d8db;position:relative;transition:background .18s ease;flex:none;}
+  .toggle .sw::after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .18s ease;}
+  .toggle.on .sw{background:var(--hi);}
+  .toggle.on .sw::after{transform:translateX(15px);}
+
+  /* ===== Body ===== */
+  .body{padding:30px 40px 8px;}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:38px 0 18px;padding-bottom:11px;border-bottom:2px solid var(--line);}
+  .section-head:first-child{margin-top:6px;}
+  .section-head .kicker{font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-deep);margin:0 0 6px;}
+  .section-head h2{font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:23px;color:var(--blue);margin:0;letter-spacing:-.3px;}
+  .count{font-size:11.5px;font-weight:600;color:var(--ink-50);white-space:nowrap;padding-bottom:2px;}
+
+  /* tags */
+  .tag{
+    display:inline-flex;align-items:center;gap:6px;border-radius:5px;padding:4px 9px;
+    font-size:10.5px;font-weight:700;letter-spacing:.3px;line-height:1;white-space:nowrap;
+  }
+  .tag .d{width:6px;height:6px;border-radius:50%;background:currentColor;}
+  .tag.aca{color:var(--aca);background:var(--aca-bg);}
+  .tag.medicaid{color:var(--medicaid);background:var(--medicaid-bg);}
+  .tag.medicare{color:var(--medicare);background:var(--medicare-bg);}
+  .tag.commercial{color:var(--commercial);background:var(--commercial-bg);}
+
+  .impact{
+    display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:3px 8px 3px 7px;
+    font-size:9px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;line-height:1;white-space:nowrap;
+  }
+  .impact .d{width:6px;height:6px;border-radius:50%;background:currentColor;}
+  .impact.high{color:var(--hi);background:var(--hi-bg);}
+  .impact.med{color:var(--med);background:var(--med-bg);}
+  .impact.low{color:var(--low);background:var(--low-bg);}
+
+  .rule-chip{
+    display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    color:var(--ink-50);border:1px solid var(--line);border-radius:4px;padding:3px 8px;line-height:1;white-space:nowrap;
+  }
+
+  /* ===== 60-second brief cards ===== */
+  .brief-intro{font-size:14px;color:var(--ink-70);margin:0 0 18px;line-height:1.6;}
+  .brief-grid{display:grid;gap:11px;}
+  .brief-card{
+    display:grid;grid-template-columns:42px 1fr;gap:16px;align-items:start;
+    background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);
+    border-radius:9px;padding:16px 18px;transition:box-shadow .15s ease,transform .15s ease;
+  }
+  .brief-card:hover{box-shadow:0 8px 24px -14px rgba(11,58,107,.4);}
+  .brief-num{font-family:'Roboto Slab',serif;font-weight:800;font-size:26px;color:var(--blue);line-height:1;opacity:.9;}
+  .brief-card .lede{font-size:14.5px;line-height:1.55;margin:0 0 6px;}
+  .brief-card .lede strong{font-weight:700;}
+  .brief-card .row{display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
+
+  /* ===== Watch cards ===== */
+  .watch{display:grid;gap:13px;}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:11px;overflow:hidden;
+    transition:box-shadow .16s ease,border-color .16s ease;
+  }
+  .card:hover{box-shadow:0 10px 30px -18px rgba(11,58,107,.45);border-color:#d7dce2;}
+  .card-head{padding:18px 20px;cursor:pointer;display:block;}
+  .card .toprow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:11px;}
+  .card h3{font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:17px;line-height:1.32;color:var(--ink);margin:0 0 8px;letter-spacing:-.2px;}
+  .card .summary{font-size:14px;line-height:1.55;color:var(--ink-70);margin:0;}
+  .card .expander{display:flex;align-items:center;gap:7px;margin-top:13px;color:var(--blue-link);font-size:12.5px;font-weight:700;letter-spacing:.2px;}
+  .card .expander .chev{width:10px;height:auto;display:inline-block;transition:transform .2s ease;filter:brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(1740%) hue-rotate(186deg) brightness(94%) contrast(95%);}
+  .card.open .expander .chev{transform:rotate(180deg);}
+  .card .expander .more{display:inline;}
+  .card.open .expander .more{display:none;}
+  .card .expander .less{display:none;}
+  .card.open .expander .less{display:inline;}
+
+  .card-detail{
+    max-height:0;overflow:hidden;transition:max-height .32s ease;
+    border-top:0 solid var(--line-soft);
+  }
+  .card.open .card-detail{max-height:640px;border-top:1px solid var(--line-soft);}
+  .detail-inner{padding:16px 20px 18px;}
+  .detail-inner p{font-size:14px;line-height:1.62;margin:0 0 14px;color:var(--ink);}
+  .action{
+    background:var(--sky-soft);border-radius:8px;padding:13px 15px;display:flex;gap:11px;align-items:flex-start;
+    margin:0 0 14px;
+  }
+  .action .ic{flex:none;width:22px;height:22px;border-radius:6px;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800;font-family:'Roboto Slab',serif;}
+  .action .txt{font-size:13.5px;line-height:1.5;color:var(--ink);}
+  .action .txt b{color:var(--blue);}
+  .src{
+    display:inline-flex;align-items:center;gap:5px;color:var(--blue-link);font-weight:600;text-decoration:none;font-size:12.5px;
+  }
+  .src:hover{text-decoration:underline;}
+
+  .empty{display:none;text-align:center;padding:34px 20px;color:var(--ink-50);font-size:14px;}
+  .empty.show{display:block;}
+  .empty b{color:var(--ink);}
+
+  /* ===== Timeline (rad2) ===== */
+  .rad2{position:relative;margin:14px 0 16px;display:grid;grid-template-columns:128px 1fr;column-gap:46px;row-gap:12px;align-items:center;}
+  .rad2::before{content:"";position:absolute;top:34px;bottom:34px;left:64px;width:2px;background:rgba(34,31,32,0.7);z-index:0;}
+  .rad2-pill{position:relative;z-index:1;width:100%;text-align:center;border-radius:999px;padding:12px 8px;font-weight:700;font-size:12.5px;line-height:1;white-space:nowrap;letter-spacing:-.1px;}
+  .rad2-pill.p1{background:#FBEFC2;color:#6E5A12;}
+  .rad2-pill.p2{background:#CFE6F7;color:#0B3A6B;}
+  .rad2-pill.p3{background:#DCE0F7;color:#33407E;}
+  .rad2-pill.p4{background:#CFEAE3;color:#1F5E54;}
+  .rad2-pill.p5{background:#D7EBDD;color:#2F6B48;}
+  .rad2-pill.p6{background:#F6DECF;color:#8A4A2A;}
+  .rad2-text{padding:4px 0;}
+  .rad2-text .t{display:block;font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:15px;color:var(--ink);margin-bottom:3px;}
+  .rad2-text .d{display:block;font-size:13px;line-height:1.46;color:var(--ink-70);}
+  .rad2-text .rsrc{display:inline-block;margin-top:5px;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--blue-link);text-decoration:none;}
+  .rad2-text .rsrc:hover{text-decoration:underline;}
+  .tri{width:8px;height:8px;display:inline-block;vertical-align:baseline;margin-left:5px;}
+  @media (max-width:560px){.rad2{grid-template-columns:96px 1fr;column-gap:22px;}.rad2::before{left:48px;}.rad2-pill{font-size:11px;padding:10px 6px;}}
+
+  /* ===== Footer ===== */
+  .footer{padding:22px 40px 22px;color:var(--ink-50);font-size:12px;line-height:1.6;border-top:1px solid var(--line);margin-top:26px;}
+  .footer .fmast{font-family:'Roboto Slab',serif;font-weight:700;color:var(--blue);font-size:13px;}
+  .footer .frow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:8px;}
+  .endbar{padding:22px 40px 30px;border-top:1px solid var(--line);text-align:center;}
+  .endbar .contacts{display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:30px;margin-bottom:14px;}
+  .endbar .ci{display:inline-flex;align-items:center;gap:8px;color:#3f4a5a;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;}
+  .endbar .ci:hover{color:var(--blue);}
+  .endbar .ci svg{width:17px;height:17px;color:var(--blue);flex:none;}
+  .endbar .copy{color:#9aa0a6;font-size:11px;letter-spacing:.2px;margin:0;}
+
+  @media (max-width:560px){
+    body{padding:14px 8px 40px;}
+    .masthead{padding:26px 22px 22px;}
+    .brandbar{padding:20px 22px 14px;}
+    .brandbar img{height:46px;}
+    .brandrule{margin:0 22px;}
+    .mast-corner{position:static;display:block;margin-bottom:10px;}
+    .title{font-size:34px;}
+    .toolbar,.body,.footer{padding-left:22px;padding-right:22px;}
+    .meta .cell{padding-right:14px;margin-right:14px;}
+    .brief-card{grid-template-columns:30px 1fr;gap:11px;padding:14px;}
+    .endbar{padding:22px 22px 28px;}
+    .endbar .contacts{flex-direction:column;gap:12px;}
+  }
+  @media print{
+    body{background:#fff;padding:0;}
+    .wrap{box-shadow:none;max-width:none;}
+    .toolbar{display:none;}
+    .card-detail{max-height:none!important;border-top:1px solid var(--line-soft);}
+    .card .expander{display:none;}
+  }
+
+  /* two-pillar additions */
+  .trk{display:inline-flex;align-items:center;gap:6px;border-radius:5px;padding:4px 9px;font-size:10.5px;font-weight:700;letter-spacing:.3px;line-height:1;white-space:nowrap;color:#fff;background:var(--blue);}
+  .trk .d{width:6px;height:6px;border-radius:50%;background:#fff;}
+  .mkt-src{font-size:12px;color:var(--ink-50);margin:11px 0 0;font-weight:600;}
+  .chip[data-f="regulatory"]{color:var(--gold-deep);}
+  .chip[data-f="market"]{color:var(--blue);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brandbar">
+    <img src="assets/simplify-healthcare-logo.png" alt="Simplify Healthcare — A Simplify Group Company">
+  </div>
+  <div class="brandrule"></div>
+
+  <header class="masthead">
+    <span class="mast-corner">Regulatory &amp; Market Brief &middot; June 8, 2026</span>
+    <p class="eyebrow"><span class="tick"></span>Competitive Intelligence</p>
+    <h1 class="title">Payer Pulse</h1>
+    <div class="meta">
+      <div class="cell"><span class="k">Edition</span><span class="v">Regulatory &amp; Market Brief</span></div>
+      <div class="cell"><span class="k">Published</span><span class="v">June 8, 2026</span></div>
+      <div class="cell"><span class="k">Next Issue</span><span class="v">June 15, 2026</span></div>
+    </div>
+  </header>
+  <div class="goldrule"></div>
+
+  <div class="toolbar" role="region" aria-label="Filter the brief">
+    <span class="lbl">View</span>
+    <div class="chips" id="chips">
+      <button class="chip active" data-f="all"><span class="dot"></span><span>All</span></button>
+      <button class="chip" data-f="regulatory"><span class="dot"></span><span>Regulatory</span></button>
+      <button class="chip" data-f="market"><span class="dot"></span><span>Payer &amp; Market</span></button>
+    </div>
+    <div class="toggle" id="hiToggle" role="switch" aria-checked="false" tabindex="0"><span class="sw"></span><span>High impact only</span></div>
+  </div>
+
+  <div class="body">
+
+    <div class="section-head" data-pillar="brief">
+      <div><p class="kicker">At a glance</p><h2>The 60-Second Brief</h2></div>
+      <span class="count">8 items</span>
+    </div>
+    <p class="brief-intro">The most consequential regulatory and payer-market developments this cycle. Items affecting plans in Simplify’s book of business are flagged inline.</p>
+    <div class="brief-grid" id="briefGrid">
+      <article class="brief-card" data-pillar="brief" data-impact="high">
+        <div class="brief-num">1</div>
+        <div>
+          <p class="lede"><strong>Risk-adjustment legal heat keeps climbing on tracked clients.</strong> An Elevance exec (Jumbo, 36.3M) was ordered to testify in an MA fraud case; Elevance again dodged — but hasn’t escaped — MA sanctions.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
+        </div>
+      </article>
+      <article class="brief-card" data-pillar="brief" data-impact="high">
+        <div class="brief-num">2</div>
+        <div>
+          <p class="lede"><strong>Aetna’s $117.7M MA False Claims settlement</strong> (CVS/Aetna, 24.9M) sharpens encounter-data scrutiny and audit-tooling demand.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
+        </div>
+      </article>
+      <article class="brief-card" data-pillar="brief" data-impact="high">
+        <div class="brief-num">3</div>
+        <div>
+          <p class="lede"><strong>A direct competitor entered our space.</strong> A Blue Shield of California spinoff (Large, 4.7M) launched an AI data platform for payers.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
+        </div>
+      </article>
+      <article class="brief-card" data-pillar="brief" data-impact="med">
+        <div class="brief-num">4</div>
+        <div>
+          <p class="lede"><strong>Network stability is wobbling across tracked clients.</strong> BCBS Michigan reached a tentative deal keeping 12 hospitals in-network; Premera extended its MultiCare deadline.</p>
+          <div class="row"><span class="impact med"><span class="d"></span>Med impact</span></div>
+        </div>
+      </article>
+      <article class="brief-card" data-pillar="brief" data-impact="med">
+        <div class="brief-num">5</div>
+        <div>
+          <p class="lede"><strong>Benefit-design shifts are accelerating.</strong> Cigna (Jumbo, 16.4M) dropped GLP-1 obesity coverage for its own employees as drug-cost pressure mounts.</p>
+          <div class="row"><span class="impact med"><span class="d"></span>Med impact</span></div>
+        </div>
+      </article>
+      <article class="brief-card" data-pillar="brief" data-impact="high">
+        <div class="brief-num">6</div>
+        <div>
+          <p class="lede"><strong>The finalized 2027 ACA Payment Notice</strong> resets risk adjustment, HHS-RADV, and Exchange user fees — forcing config updates across QHP products.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
+        </div>
+      </article>
+      <article class="brief-card" data-pillar="brief" data-impact="high">
+        <div class="brief-num">7</div>
+        <div>
+          <p class="lede"><strong>CMS enforcement is broad.</strong> Seven MA contract suspensions/terminations plus a Massachusetts Medicaid fraud suit against UnitedHealthcare signal sustained compliance pressure.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
+        </div>
+      </article>
+      <article class="brief-card" data-pillar="brief" data-impact="high">
+        <div class="brief-num">8</div>
+        <div>
+          <p class="lede"><strong>Medicaid work requirements are now law via IFC,</strong> with states mandated to implement by January 1, 2027 — a major eligibility/verification integration opening.</p>
+          <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="section-head" data-pillar="regulatory">
+      <div><p class="kicker">Deep Dive</p><h2>Regulatory &amp; Government Watch</h2></div>
+      <span class="count" data-count="reg">6 items</span>
+    </div>
+    <div class="watch" id="regList">
+      <article class="card" data-pillar="regulatory" data-impact="high" data-tracked="0">
+        <div class="card-head">
+          <div class="toprow"><span class="rule-chip">Final Rule</span><span class="tag aca"><span class="d"></span>ACA</span><span class="impact high"><span class="d"></span>High</span></div>
+          <h3>HHS Notice of Benefit and Payment Parameters for 2027</h3>
+          <p class="summary">Finalizes 2027 payment parameters, HHS-RADV updates, and QHP user-fee rates for the ACA marketplaces.</p>
+          <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><img class="chev" src="assets/arrow-bottom.png" alt=""></div>
+        </div>
+        <div class="card-detail"><div class="detail-inner">
+          <p>This final rule resets the HHS-operated risk adjustment and risk-adjustment data validation (HHS-RADV) programs and sets 2027 user-fee rates for QHP issuers on Federally-facilitated and State-based Exchanges.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Update product configuration ahead of plan-year work — these parameters are locked for 2027. Effective Jul 20, 2026.</span></div>
+          <a class="src" href="https://www.federalregister.gov/documents/2026/05/20/2026-10050/patient-protection-and-affordable-care-act-hhs-notice-of-benefit-and-payment-parameters-for-2027-and" target="_blank" rel="noopener">Federal Register ↗</a>
+        </div></div>
+      </article>
+      <article class="card" data-pillar="regulatory" data-impact="high" data-tracked="0">
+        <div class="card-head">
+          <div class="toprow"><span class="rule-chip">Proposed Rule</span><span class="tag medicaid"><span class="d"></span>Medicaid</span><span class="impact high"><span class="d"></span>High</span></div>
+          <h3>Medicaid Managed Care State Directed Payments</h3>
+          <p class="summary">CMS proposes alternatives to the cap on total payment rates for state directed payments in managed care.</p>
+          <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><img class="chev" src="assets/arrow-bottom.png" alt=""></div>
+        </div>
+        <div class="card-detail"><div class="detail-inner">
+          <p>CMS proposes alternatives to modify the limit on the total payment rate and other requirements for state directed payments in Medicaid managed care, citing its authority over prepaid inpatient and ambulatory health plans.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Reshapes Medicaid managed-care revenue models and configuration. Comment closes Jul 21, 2026.</span></div>
+          <a class="src" href="https://www.federalregister.gov/documents/2026/05/22/2026-10292/medicaid-program-medicaid-managed-care-state-directed-payments-and-medicaid-fee-for-service-targeted" target="_blank" rel="noopener">Federal Register ↗</a>
+        </div></div>
+      </article>
+      <article class="card" data-pillar="regulatory" data-impact="high" data-tracked="0">
+        <div class="card-head">
+          <div class="toprow"><span class="rule-chip">Interim Final · w/ comment</span><span class="tag medicaid"><span class="d"></span>Medicaid</span><span class="impact high"><span class="d"></span>High</span></div>
+          <h3>Medicaid Community Engagement (Work) Requirement</h3>
+          <p class="summary">An IFC implements the new Medicaid work requirement; states must implement no later than January 1, 2027.</p>
+          <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><img class="chev" src="assets/arrow-bottom.png" alt=""></div>
+        </div>
+        <div class="card-detail"><div class="detail-inner">
+          <p>This interim final rule implements the statutory community-engagement requirement, defining which applicants and beneficiaries must demonstrate qualifying activity as a condition of eligibility. States must comply no later than January 1, 2027.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Stand up eligibility-determination and verification workflows — a major systems-integration opportunity, with significant member-communication burden.</span></div>
+          <a class="src" href="https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals" target="_blank" rel="noopener">Federal Register ↗</a>
+        </div></div>
+      </article>
+      <article class="card" data-pillar="regulatory" data-impact="med" data-tracked="0">
+        <div class="card-head">
+          <div class="toprow"><span class="rule-chip">Notice</span><span class="tag aca"><span class="d"></span>ACA</span><span class="tag medicaid"><span class="d"></span>Medicaid</span><span class="tag medicare"><span class="d"></span>MA</span><span class="tag commercial"><span class="d"></span>Commercial</span><span class="impact med"><span class="d"></span>Med</span></div>
+          <h3>Vacatur of Parts of the 2024 Section 1557 Nondiscrimination Rule</h3>
+          <p class="summary">A federal court vacated portions of the 2024 nondiscrimination rule (Tennessee v. Kennedy, S.D. Miss.).</p>
+          <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><img class="chev" src="assets/arrow-bottom.png" alt=""></div>
+        </div>
+        <div class="card-detail"><div class="detail-inner">
+          <p>Following an October 2025 order in Tennessee v. Kennedy (S.D. Miss.), HHS notes that portions of the 2024 Nondiscrimination in Health Programs and Activities rule — specifically those expanding the definition of sex discrimination — have been vacated.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Review benefit-design and member-communication policies built to the 2024 standard across all affected plan lines.</span></div>
+          <a class="src" href="https://www.federalregister.gov/documents/2026/06/02/2026-11015/notice-of-vacatur-regarding-certain-provisions-of-the-2024-nondiscrimination-in-health-programs-and" target="_blank" rel="noopener">Federal Register ↗</a>
+        </div></div>
+      </article>
+      <article class="card" data-pillar="regulatory" data-impact="med" data-tracked="0">
+        <div class="card-head">
+          <div class="toprow"><span class="rule-chip">Legislation</span><span class="tag medicaid"><span class="d"></span>Medicaid</span><span class="impact med"><span class="d"></span>Med</span></div>
+          <h3>HR 9139 — Medicaid Financing Intent</h3>
+          <p class="summary">A House bill clarifying congressional intent on Medicaid financing; referred to Energy &amp; Commerce.</p>
+          <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><img class="chev" src="assets/arrow-bottom.png" alt=""></div>
+        </div>
+        <div class="card-detail"><div class="detail-inner">
+          <p>HR 9139 would amend Title XIX of the Social Security Act to clarify congressional intent on Medicaid financing policies. Latest action: referred to the House Committee on Energy and Commerce.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Watch as a longer-term signal — could reshape managed-care funding rules and Medicaid revenue configuration.</span></div>
+          <a class="src" href="https://www.congress.gov/bill/119th-congress/house-bill/9139" target="_blank" rel="noopener">Congress.gov ↗</a>
+        </div></div>
+      </article>
+      <article class="card" data-pillar="regulatory" data-impact="med" data-tracked="0">
+        <div class="card-head">
+          <div class="toprow"><span class="rule-chip">Final Rule</span><span class="tag medicare"><span class="d"></span>MA</span><span class="impact med"><span class="d"></span>Med</span></div>
+          <h3>IOTA Organ Transplant Model Updates (PY2)</h3>
+          <p class="summary">CMS updates the Increasing Organ Transplant Access (IOTA) Model for Performance Year 2, plus a technical correction.</p>
+          <div class="expander"><span class="more">Read full analysis</span><span class="less">Show less</span><img class="chev" src="assets/arrow-bottom.png" alt=""></div>
+        </div>
+        <div class="card-detail"><div class="detail-inner">
+          <p>This final rule updates the Increasing Organ Transplant Access (IOTA) Model for Performance Year 2 and includes a technical correction to the regulatory text.</p>
+          <div class="action"><span class="ic">→</span><span class="txt"><b>What to do:</b> Affects Medicare APM configuration for participating payers and value-based arrangements. Effective Jul 1, 2026.</span></div>
+          <a class="src" href="https://www.federalregister.gov/documents/2026/06/01/2026-10890/medicare-program-alternative-payment-model-updates-and-the-increasing-organ-transplant-access-iota" target="_blank" rel="noopener">Federal Register ↗</a>
+        </div></div>
+      </article>
+      <div class="empty" id="emptyReg">No regulatory items match this filter.</div>
+    </div>
+
+    <div class="section-head" data-pillar="market">
+      <div><p class="kicker">Competitive Landscape</p><h2>Payer &amp; Market Moves</h2></div>
+      <span class="count" data-count="mkt">21 items</span>
+    </div>
+    <div class="watch" id="mktList">
+      <article class="card" data-pillar="market" data-impact="high" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact high"><span class="d"></span>High</span><span class="rule-chip">UnitedHealthcare</span></div>
+          <h3>Massachusetts sues UnitedHealthcare for alleged Medicaid fraud</h3>
+          <p class="summary">A state AG Medicaid-fraud suit against the largest payer signals enforcement risk — lifting payment-integrity and compliance software demand.</p>
+          <p class="mkt-src">Source: Healthcare Dive · +3 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="high" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact high"><span class="d"></span>High</span><span class="rule-chip">CVS / Aetna</span></div>
+          <h3>Aetna to pay $117.7M to settle Medicare Advantage False Claims allegations</h3>
+          <p class="summary">A $117.7M MA False Claims settlement underscores risk-adjustment scrutiny, driving demand for audit and encounter-data compliance tooling.</p>
+          <p class="mkt-src">Source: Medical Economics</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="high" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact high"><span class="d"></span>High</span><span class="trk"><span class="d"></span>Elevance Health · Jumbo · 36.3M</span></div>
+          <h3>Elevance executive ordered to testify in Medicare Advantage fraud case</h3>
+          <p class="summary">An exec compelled to testify in an MA fraud case heightens risk-adjustment legal exposure across large payers.</p>
+          <p class="mkt-src">Source: STAT · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">Point32Health (Harvard Pilgrim)</span></div>
+          <h3>Harvard Pilgrim class action alleges ‘ghost network’ fraud</h3>
+          <p class="summary">A ‘ghost network’ class action elevates provider-directory accuracy scrutiny and demand for network-data validation tools.</p>
+          <p class="mkt-src">Source: Class Action Lawsuits</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">Clover Health</span></div>
+          <h3>Clover beats CMS in Medicare Advantage star-ratings lawsuit</h3>
+          <p class="summary">A win over CMS on star-ratings methodology sets a precedent payers can leverage in disputes affecting MA bonus revenue.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Health Care Service Corp. · Jumbo · 18.6M</span></div>
+          <h3>Judge dismisses BCBS Texas’ surprise-billing suit against HaloMD</h3>
+          <p class="summary">Dismissal clarifies No Surprises Act dispute dynamics affecting claims and arbitration workflows.</p>
+          <p class="mkt-src">Source: Healthcare Dive · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Compliance</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Elevance Health · Jumbo · 36.3M</span></div>
+          <h3>Elevance again avoids Medicare Advantage sanctions, but threat remains</h3>
+          <p class="summary">A repeated near-miss on MA sanctions signals sustained compliance pressure — favoring monitoring software.</p>
+          <p class="mkt-src">Source: Healthcare Dive · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Compliance</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">Industry</span></div>
+          <h3>7 recent Medicare Advantage contract suspensions, terminations</h3>
+          <p class="summary">A roundup of MA contract actions highlights intensifying CMS enforcement shaping payer compliance priorities.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="high" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Networks</span><span class="impact high"><span class="d"></span>High</span><span class="trk"><span class="d"></span>BCBS Michigan · Large · 4.3M</span></div>
+          <h3>Michigan Medicine, BCBS reach tentative deal; 12 hospitals stay in-network</h3>
+          <p class="summary">A tentative deal resolves a major contract dispute and requires provider-network reconfiguration.</p>
+          <p class="mkt-src">Source: CBS News · +7 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Networks</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Premera Blue Cross · Large · 2.0M</span></div>
+          <h3>Premera, MultiCare extend contract negotiation deadline</h3>
+          <p class="summary">Extended MultiCare negotiations signal network instability requiring rapid directory and contract-management updates.</p>
+          <p class="mkt-src">Source: Tacoma News Tribune · +4 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Product</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Blue Shield of California · Large · 4.7M</span></div>
+          <h3>Blue Shield of California spinoff launches AI data platform for payers</h3>
+          <p class="summary">A tracked client’s spinoff launching a payer AI data platform is a direct competitive product entry in Simplify’s space.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Product</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>CVS / Aetna · Jumbo · 24.9M</span></div>
+          <h3>Aetna to launch ‘on-demand’ virtual mental health services in 2027</h3>
+          <p class="summary">A 2027 on-demand virtual behavioral-health launch signals benefit expansion needing product and network configuration.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Product</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Health Care Service Corp. · Jumbo · 18.6M</span></div>
+          <h3>BCBS Illinois expands maternal health coverage</h3>
+          <p class="summary">A maternal-health coverage expansion reflects benefit-design changes requiring product configuration updates.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Market shift</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">Presbyterian Health Plan</span></div>
+          <h3>Presbyterian Health Plan to pull back from Medicare Advantage</h3>
+          <p class="summary">An MA exit continues the plan-exit trend, reshaping competitive dynamics in Medicaid-heavy markets.</p>
+          <p class="mkt-src">Source: Modern Healthcare</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Market shift</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Cigna · Jumbo · 16.4M</span></div>
+          <h3>Cigna drops coverage of GLP-1 obesity drugs for its own employees</h3>
+          <p class="summary">Dropping GLP-1 obesity coverage for employees signals benefit-design shifts payers must configure amid drug-cost pressure.</p>
+          <p class="mkt-src">Source: Reuters · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Market shift</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Humana · Jumbo · 11.8M</span></div>
+          <h3>Humana invests $83M in new Florida pharmacy distribution center</h3>
+          <p class="summary">An $83M pharmacy distribution investment signals vertical pharmacy expansion influencing benefit and claims integration.</p>
+          <p class="mkt-src">Source: Fierce Healthcare · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Financials</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Highmark Health · Large · 5.1M</span></div>
+          <h3>Highmark posts $216M operating income in Q1 on health-plan turnaround</h3>
+          <p class="summary">$216M Q1 operating income signals financial capacity for technology investment.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Financials</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Cigna · Jumbo · 16.4M</span></div>
+          <h3>Cigna’s stop-loss margin recovery on track to wrap in 2027, incoming CEO says</h3>
+          <p class="summary">Stop-loss margin recovery timing and incoming-CEO commentary point to employer-segment product strategy shifts.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Leadership</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>GuideWell · Large · 4.9M</span></div>
+          <h3>Florida Blue taps interim market president amid leader’s retirement</h3>
+          <p class="summary">An interim market-president appointment signals a leadership transition affecting key-account continuity.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues · +1 more outlets</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Leadership</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">UnitedHealthcare</span></div>
+          <h3>UnitedHealthcare names Kentucky Medicaid chief medical officer</h3>
+          <p class="summary">A new Kentucky Medicaid CMO signals Medicaid leadership focus relevant to plan-management software priorities.</p>
+          <p class="mkt-src">Source: Becker’s Payer Issues</p>
+        </div>
+      </article>
+      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+        <div class="card-head" style="cursor:default">
+          <div class="toprow"><span class="rule-chip">Leadership</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Kaiser Permanente · Jumbo · 12.1M</span></div>
+          <h3>Kaiser Permanente names Emily Holliman mid-Atlantic president</h3>
+          <p class="summary">A new mid-Atlantic president marks a regional leadership change affecting account engagement.</p>
+          <p class="mkt-src">Source: The Business Journals · +2 more outlets</p>
+        </div>
+      </article>
+      <div class="empty" id="emptyMkt">No market items match this filter.</div>
+    </div>
+
+    <div class="section-head" data-pillar="brief">
+      <div><p class="kicker">Calendar</p><h2>On the Radar</h2></div>
+      <span class="count">6 dates</span>
+    </div>
+    <div class="rad2">
+      <div class="rad2-pill p1">Jul 1, 2026</div>
+      <div class="rad2-text"><span class="t">Effective</span><span class="d">IOTA Model PY2 updates take effect (Medicare APMs).</span><a class="rsrc" href="https://www.federalregister.gov/documents/2026/06/01/2026-10890/medicare-program-alternative-payment-model-updates-and-the-increasing-organ-transplant-access-iota" target="_blank" rel="noopener">Source<svg class="tri" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2.1 L9.7 6 L3 9.9 Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></a></div>
+
+      <div class="rad2-pill p2">Jul 20, 2026</div>
+      <div class="rad2-text"><span class="t">Effective</span><span class="d">2027 HHS Notice of Benefit and Payment Parameters — ready risk-adjustment and Exchange config.</span><a class="rsrc" href="https://www.federalregister.gov/documents/2026/05/20/2026-10050/patient-protection-and-affordable-care-act-hhs-notice-of-benefit-and-payment-parameters-for-2027-and" target="_blank" rel="noopener">Source<svg class="tri" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2.1 L9.7 6 L3 9.9 Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></a></div>
+
+      <div class="rad2-pill p3">Jul 21, 2026</div>
+      <div class="rad2-text"><span class="t">Comment Close</span><span class="d">Medicaid managed-care state directed payments proposed rule.</span><a class="rsrc" href="https://www.federalregister.gov/documents/2026/05/22/2026-10292/medicaid-program-medicaid-managed-care-state-directed-payments-and-medicaid-fee-for-service-targeted" target="_blank" rel="noopener">Source<svg class="tri" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2.1 L9.7 6 L3 9.9 Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></a></div>
+
+      <div class="rad2-pill p4">Jul 31, 2026</div>
+      <div class="rad2-text"><span class="t">Effective</span><span class="d">Medicaid community-engagement IFC (comment period open).</span><a class="rsrc" href="https://www.federalregister.gov/documents/2026/06/03/2026-11094/medicaid-program-community-engagement-requirement-for-certain-individuals" target="_blank" rel="noopener">Source<svg class="tri" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2.1 L9.7 6 L3 9.9 Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></a></div>
+
+      <div class="rad2-pill p5">Jan 1, 2027</div>
+      <div class="rad2-text"><span class="t">Watch</span><span class="d">State deadline to implement Medicaid work requirements.</span></div>
+
+      <div class="rad2-pill p6">2027</div>
+      <div class="rad2-text"><span class="t">Watch</span><span class="d">Aetna on-demand virtual behavioral-health launch; Cigna stop-loss margin recovery target.</span></div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <span class="fmast">Payer Pulse</span> is an automated twice-monthly scan of federal regulatory and payer-market activity, curated by Claude Opus and synthesized for leadership. Regulatory sources are linked; market sources are named (live links added on automated publish).
+    <div class="frow">
+      <span>Compiled June 8, 2026 · Next issue June 15</span>
+      <span>Simplify Healthcare · Competitive Intelligence</span>
+    </div>
+  </footer>
+  <div class="endbar">
+    <div class="contacts">
+      <a class="ci" href="tel:+18447206678"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>(844) 720-6678</a>
+      <a class="ci" href="mailto:info@simplifyhealthcare.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>info@simplifyhealthcare.com</a>
+      <a class="ci" href="https://simplifyhealthcare.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path></svg>simplifyhealthcare.com</a>
+    </div>
+    <p class="copy">Copyright &copy; 2026 Simplify Healthcare. All Rights Reserved. Confidential and Proprietary.</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var chips=document.querySelectorAll('#chips .chip');
+  var hi=document.getElementById('hiToggle');
+  var activeF='all', hiOnly=false;
+  function vis(el){
+    var p=el.getAttribute('data-pillar'), imp=el.getAttribute('data-impact');
+    if(hiOnly && imp!=='high') return false;
+    if(activeF!=='all' && p!=='brief' && p!==activeF) return false;
+    return true;
+  }
+  function apply(){
+    ['#briefGrid','#regList','#mktList'].forEach(function(sel){
+      document.querySelectorAll(sel+' > article').forEach(function(el){ el.style.display=vis(el)?'':'none'; });
+    });
+    // section heads follow the pillar chip
+    document.querySelectorAll('.section-head').forEach(function(h){
+      var p=h.getAttribute('data-pillar');
+      var show = (activeF==='all') || p==='brief' || p===activeF;
+      h.style.display = show ? '' : 'none';
+    });
+    var rc=document.querySelector('[data-count="reg"]'), mc=document.querySelector('[data-count="mkt"]');
+    function cnt(sel){return [].filter.call(document.querySelectorAll(sel+' > article'),function(e){return e.style.display!=='none';}).length;}
+    var r=cnt('#regList'), m=cnt('#mktList');
+    if(rc) rc.textContent=r+(r===1?' item':' items');
+    if(mc) mc.textContent=m+(m===1?' item':' items');
+    var er=document.getElementById('emptyReg'), em=document.getElementById('emptyMkt');
+    if(er) er.classList.toggle('show', r===0);
+    if(em) em.classList.toggle('show', m===0);
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){chips.forEach(function(x){x.classList.remove('active');});c.classList.add('active');activeF=c.getAttribute('data-f');apply();});});
+  function tog(){hiOnly=!hiOnly;hi.classList.toggle('on',hiOnly);hi.setAttribute('aria-checked',String(hiOnly));apply();}
+  hi.addEventListener('click',tog);
+  hi.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();tog();}});
+  document.querySelectorAll('#regList .card-head').forEach(function(h){
+    h.addEventListener('click',function(e){if(e.target.closest('a'))return;h.parentElement.classList.toggle('open');});
+  });
+  apply();
+})();
+</script>
+
+</body></html>
