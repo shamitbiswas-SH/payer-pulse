@@ -271,6 +271,16 @@
   .mkt-src{font-size:12px;color:var(--ink-50);margin:11px 0 0;font-weight:600;}
   .chip[data-f="regulatory"]{color:var(--gold-deep);}
   .chip[data-f="market"]{color:var(--blue);}
+
+  /* clickable 60-second items + anchor jumps */
+  html{scroll-behavior:smooth;}
+  .card{scroll-margin-top:96px;}
+  .brief-card[data-jump]{cursor:pointer;transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;}
+  .brief-card[data-jump]:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(16,82,153,.13);border-color:var(--blue);}
+  .brief-card[data-jump]:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  .chip[data-f="leadership"]{color:var(--blue);}
+  @keyframes ppflash{0%{box-shadow:0 0 0 0 rgba(214,183,62,0);}15%{box-shadow:0 0 0 3px rgba(214,183,62,.55);}100%{box-shadow:0 0 0 0 rgba(214,183,62,0);}}
+  .card.flash{animation:ppflash 1.6s ease;}
 </style>
 </head>
 <body>
@@ -283,7 +293,6 @@
 
   <header class="masthead">
     <span class="mast-corner">Regulatory &amp; Market Brief &middot; June 8, 2026</span>
-    <p class="eyebrow"><span class="tick"></span>Competitive Intelligence</p>
     <h1 class="title">Payer Pulse</h1>
     <div class="meta">
       <div class="cell"><span class="k">Edition</span><span class="v">Regulatory &amp; Market Brief</span></div>
@@ -299,6 +308,7 @@
       <button class="chip active" data-f="all"><span class="dot"></span><span>All</span></button>
       <button class="chip" data-f="regulatory"><span class="dot"></span><span>Regulatory</span></button>
       <button class="chip" data-f="market"><span class="dot"></span><span>Payer &amp; Market</span></button>
+      <button class="chip" data-f="leadership"><span class="dot"></span><span>Leadership</span></button>
     </div>
     <div class="toggle" id="hiToggle" role="switch" aria-checked="false" tabindex="0"><span class="sw"></span><span>High impact only</span></div>
   </div>
@@ -311,56 +321,56 @@
     </div>
     <p class="brief-intro">The most consequential regulatory and payer-market developments this cycle. Items affecting plans in Simplify’s book of business are flagged inline.</p>
     <div class="brief-grid" id="briefGrid">
-      <article class="brief-card" data-pillar="brief" data-impact="high">
+      <article class="brief-card" data-jump="#m-elevance" role="link" tabindex="0" data-pillar="brief" data-impact="high">
         <div class="brief-num">1</div>
         <div>
           <p class="lede"><strong>Risk-adjustment legal heat keeps climbing on tracked clients.</strong> An Elevance exec (Jumbo, 36.3M) was ordered to testify in an MA fraud case; Elevance again dodged — but hasn’t escaped — MA sanctions.</p>
           <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
         </div>
       </article>
-      <article class="brief-card" data-pillar="brief" data-impact="high">
+      <article class="brief-card" data-jump="#m-aetna" role="link" tabindex="0" data-pillar="brief" data-impact="high">
         <div class="brief-num">2</div>
         <div>
           <p class="lede"><strong>Aetna’s $117.7M MA False Claims settlement</strong> (CVS/Aetna, 24.9M) sharpens encounter-data scrutiny and audit-tooling demand.</p>
           <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
         </div>
       </article>
-      <article class="brief-card" data-pillar="brief" data-impact="high">
+      <article class="brief-card" data-jump="#m-bsc" role="link" tabindex="0" data-pillar="brief" data-impact="high">
         <div class="brief-num">3</div>
         <div>
           <p class="lede"><strong>A direct competitor entered our space.</strong> A Blue Shield of California spinoff (Large, 4.7M) launched an AI data platform for payers.</p>
           <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
         </div>
       </article>
-      <article class="brief-card" data-pillar="brief" data-impact="med">
+      <article class="brief-card" data-jump="#m-bcbsmi" role="link" tabindex="0" data-pillar="brief" data-impact="med">
         <div class="brief-num">4</div>
         <div>
           <p class="lede"><strong>Network stability is wobbling across tracked clients.</strong> BCBS Michigan reached a tentative deal keeping 12 hospitals in-network; Premera extended its MultiCare deadline.</p>
           <div class="row"><span class="impact med"><span class="d"></span>Med impact</span></div>
         </div>
       </article>
-      <article class="brief-card" data-pillar="brief" data-impact="med">
+      <article class="brief-card" data-jump="#m-cigna" role="link" tabindex="0" data-pillar="brief" data-impact="med">
         <div class="brief-num">5</div>
         <div>
           <p class="lede"><strong>Benefit-design shifts are accelerating.</strong> Cigna (Jumbo, 16.4M) dropped GLP-1 obesity coverage for its own employees as drug-cost pressure mounts.</p>
           <div class="row"><span class="impact med"><span class="d"></span>Med impact</span></div>
         </div>
       </article>
-      <article class="brief-card" data-pillar="brief" data-impact="high">
+      <article class="brief-card" data-jump="#r-aca" role="link" tabindex="0" data-pillar="brief" data-impact="high">
         <div class="brief-num">6</div>
         <div>
           <p class="lede"><strong>The finalized 2027 ACA Payment Notice</strong> resets risk adjustment, HHS-RADV, and Exchange user fees — forcing config updates across QHP products.</p>
           <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
         </div>
       </article>
-      <article class="brief-card" data-pillar="brief" data-impact="high">
+      <article class="brief-card" data-jump="#m-uhc" role="link" tabindex="0" data-pillar="brief" data-impact="high">
         <div class="brief-num">7</div>
         <div>
           <p class="lede"><strong>CMS enforcement is broad.</strong> Seven MA contract suspensions/terminations plus a Massachusetts Medicaid fraud suit against UnitedHealthcare signal sustained compliance pressure.</p>
           <div class="row"><span class="impact high"><span class="d"></span>High impact</span></div>
         </div>
       </article>
-      <article class="brief-card" data-pillar="brief" data-impact="high">
+      <article class="brief-card" data-jump="#r-medce" role="link" tabindex="0" data-pillar="brief" data-impact="high">
         <div class="brief-num">8</div>
         <div>
           <p class="lede"><strong>Medicaid work requirements are now law via IFC,</strong> with states mandated to implement by January 1, 2027 — a major eligibility/verification integration opening.</p>
@@ -374,7 +384,7 @@
       <span class="count" data-count="reg">6 items</span>
     </div>
     <div class="watch" id="regList">
-      <article class="card" data-pillar="regulatory" data-impact="high" data-tracked="0">
+      <article class="card" id="r-aca" data-pillar="regulatory" data-impact="high" data-tracked="0">
         <div class="card-head">
           <div class="toprow"><span class="rule-chip">Final Rule</span><span class="tag aca"><span class="d"></span>ACA</span><span class="impact high"><span class="d"></span>High</span></div>
           <h3>HHS Notice of Benefit and Payment Parameters for 2027</h3>
@@ -400,7 +410,7 @@
           <a class="src" href="https://www.federalregister.gov/documents/2026/05/22/2026-10292/medicaid-program-medicaid-managed-care-state-directed-payments-and-medicaid-fee-for-service-targeted" target="_blank" rel="noopener">Federal Register ↗</a>
         </div></div>
       </article>
-      <article class="card" data-pillar="regulatory" data-impact="high" data-tracked="0">
+      <article class="card" id="r-medce" data-pillar="regulatory" data-impact="high" data-tracked="0">
         <div class="card-head">
           <div class="toprow"><span class="rule-chip">Interim Final · w/ comment</span><span class="tag medicaid"><span class="d"></span>Medicaid</span><span class="impact high"><span class="d"></span>High</span></div>
           <h3>Medicaid Community Engagement (Work) Requirement</h3>
@@ -460,7 +470,7 @@
       <span class="count" data-count="mkt">21 items</span>
     </div>
     <div class="watch" id="mktList">
-      <article class="card" data-pillar="market" data-impact="high" data-tracked="0">
+      <article class="card" id="m-uhc" data-pillar="market" data-impact="high" data-tracked="0">
         <div class="card-head" style="cursor:default">
           <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact high"><span class="d"></span>High</span><span class="rule-chip">UnitedHealthcare</span></div>
           <h3>Massachusetts sues UnitedHealthcare for alleged Medicaid fraud</h3>
@@ -468,7 +478,7 @@
           <p class="mkt-src">Source: Healthcare Dive · +3 more outlets</p>
         </div>
       </article>
-      <article class="card" data-pillar="market" data-impact="high" data-tracked="0">
+      <article class="card" id="m-aetna" data-pillar="market" data-impact="high" data-tracked="0">
         <div class="card-head" style="cursor:default">
           <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact high"><span class="d"></span>High</span><span class="rule-chip">CVS / Aetna</span></div>
           <h3>Aetna to pay $117.7M to settle Medicare Advantage False Claims allegations</h3>
@@ -476,7 +486,7 @@
           <p class="mkt-src">Source: Medical Economics</p>
         </div>
       </article>
-      <article class="card" data-pillar="market" data-impact="high" data-tracked="1">
+      <article class="card" id="m-elevance" data-pillar="market" data-impact="high" data-tracked="1">
         <div class="card-head" style="cursor:default">
           <div class="toprow"><span class="rule-chip">Litigation</span><span class="impact high"><span class="d"></span>High</span><span class="trk"><span class="d"></span>Elevance Health · Jumbo · 36.3M</span></div>
           <h3>Elevance executive ordered to testify in Medicare Advantage fraud case</h3>
@@ -524,7 +534,7 @@
           <p class="mkt-src">Source: Becker’s Payer Issues</p>
         </div>
       </article>
-      <article class="card" data-pillar="market" data-impact="high" data-tracked="1">
+      <article class="card" id="m-bcbsmi" data-pillar="market" data-impact="high" data-tracked="1">
         <div class="card-head" style="cursor:default">
           <div class="toprow"><span class="rule-chip">Networks</span><span class="impact high"><span class="d"></span>High</span><span class="trk"><span class="d"></span>BCBS Michigan · Large · 4.3M</span></div>
           <h3>Michigan Medicine, BCBS reach tentative deal; 12 hospitals stay in-network</h3>
@@ -540,7 +550,7 @@
           <p class="mkt-src">Source: Tacoma News Tribune · +4 more outlets</p>
         </div>
       </article>
-      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+      <article class="card" id="m-bsc" data-pillar="market" data-impact="med" data-tracked="1">
         <div class="card-head" style="cursor:default">
           <div class="toprow"><span class="rule-chip">Product</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Blue Shield of California · Large · 4.7M</span></div>
           <h3>Blue Shield of California spinoff launches AI data platform for payers</h3>
@@ -572,7 +582,7 @@
           <p class="mkt-src">Source: Modern Healthcare</p>
         </div>
       </article>
-      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+      <article class="card" id="m-cigna" data-pillar="market" data-impact="med" data-tracked="1">
         <div class="card-head" style="cursor:default">
           <div class="toprow"><span class="rule-chip">Market shift</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Cigna · Jumbo · 16.4M</span></div>
           <h3>Cigna drops coverage of GLP-1 obesity drugs for its own employees</h3>
@@ -604,7 +614,15 @@
           <p class="mkt-src">Source: Becker’s Payer Issues</p>
         </div>
       </article>
-      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+            <div class="empty" id="emptyMkt">No market items match this filter.</div>
+    </div>
+
+    <div class="section-head" data-pillar="leadership">
+      <div><p class="kicker">Executive Moves</p><h2>Leadership Updates</h2></div>
+      <span class="count" data-count="lead"></span>
+    </div>
+    <div class="watch" id="leadList">
+<article class="card" data-pillar="leadership" data-impact="med" data-tracked="1">
         <div class="card-head" style="cursor:default">
           <div class="toprow"><span class="rule-chip">Leadership</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>GuideWell · Large · 4.9M</span></div>
           <h3>Florida Blue taps interim market president amid leader’s retirement</h3>
@@ -612,7 +630,7 @@
           <p class="mkt-src">Source: Becker’s Payer Issues · +1 more outlets</p>
         </div>
       </article>
-      <article class="card" data-pillar="market" data-impact="med" data-tracked="0">
+      <article class="card" data-pillar="leadership" data-impact="med" data-tracked="0">
         <div class="card-head" style="cursor:default">
           <div class="toprow"><span class="rule-chip">Leadership</span><span class="impact med"><span class="d"></span>Med</span><span class="rule-chip">UnitedHealthcare</span></div>
           <h3>UnitedHealthcare names Kentucky Medicaid chief medical officer</h3>
@@ -620,7 +638,7 @@
           <p class="mkt-src">Source: Becker’s Payer Issues</p>
         </div>
       </article>
-      <article class="card" data-pillar="market" data-impact="med" data-tracked="1">
+      <article class="card" data-pillar="leadership" data-impact="med" data-tracked="1">
         <div class="card-head" style="cursor:default">
           <div class="toprow"><span class="rule-chip">Leadership</span><span class="impact med"><span class="d"></span>Med</span><span class="trk"><span class="d"></span>Kaiser Permanente · Jumbo · 12.1M</span></div>
           <h3>Kaiser Permanente names Emily Holliman mid-Atlantic president</h3>
@@ -628,7 +646,7 @@
           <p class="mkt-src">Source: The Business Journals · +2 more outlets</p>
         </div>
       </article>
-      <div class="empty" id="emptyMkt">No market items match this filter.</div>
+      <div class="empty" id="emptyLead">No leadership updates match this filter.</div>
     </div>
 
     <div class="section-head" data-pillar="brief">
@@ -687,7 +705,7 @@
     return true;
   }
   function apply(){
-    ['#briefGrid','#regList','#mktList'].forEach(function(sel){
+    ['#briefGrid','#regList','#mktList','#leadList'].forEach(function(sel){
       document.querySelectorAll(sel+' > article').forEach(function(el){ el.style.display=vis(el)?'':'none'; });
     });
     // section heads follow the pillar chip
@@ -696,14 +714,16 @@
       var show = (activeF==='all') || p==='brief' || p===activeF;
       h.style.display = show ? '' : 'none';
     });
-    var rc=document.querySelector('[data-count="reg"]'), mc=document.querySelector('[data-count="mkt"]');
+    var rc=document.querySelector('[data-count="reg"]'), mc=document.querySelector('[data-count="mkt"]'), lc=document.querySelector('[data-count="lead"]');
     function cnt(sel){return [].filter.call(document.querySelectorAll(sel+' > article'),function(e){return e.style.display!=='none';}).length;}
-    var r=cnt('#regList'), m=cnt('#mktList');
+    var r=cnt('#regList'), m=cnt('#mktList'), l=cnt('#leadList');
     if(rc) rc.textContent=r+(r===1?' item':' items');
     if(mc) mc.textContent=m+(m===1?' item':' items');
+    if(lc) lc.textContent=l+(l===1?' update':' updates');
     var er=document.getElementById('emptyReg'), em=document.getElementById('emptyMkt');
     if(er) er.classList.toggle('show', r===0);
     if(em) em.classList.toggle('show', m===0);
+    var el2=document.getElementById('emptyLead'); if(el2) el2.classList.toggle('show', l===0);
   }
   chips.forEach(function(c){c.addEventListener('click',function(){chips.forEach(function(x){x.classList.remove('active');});c.classList.add('active');activeF=c.getAttribute('data-f');apply();});});
   function tog(){hiOnly=!hiOnly;hi.classList.toggle('on',hiOnly);hi.setAttribute('aria-checked',String(hiOnly));apply();}
@@ -711,6 +731,18 @@
   hi.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();tog();}});
   document.querySelectorAll('#regList .card-head').forEach(function(h){
     h.addEventListener('click',function(e){if(e.target.closest('a'))return;h.parentElement.classList.toggle('open');});
+  });
+  document.querySelectorAll('[data-jump]').forEach(function(el){
+    function go(){
+      var t=document.querySelector(el.getAttribute('data-jump')); if(!t) return;
+      var allChip=document.querySelector('#chips .chip[data-f="all"]');
+      if(allChip && !allChip.classList.contains('active')) allChip.click();
+      if(hiOnly) hi.click();
+      t.scrollIntoView({behavior:'smooth',block:'start'});
+      t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash');
+    }
+    el.addEventListener('click',go);
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
   });
   apply();
 })();
